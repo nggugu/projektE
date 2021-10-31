@@ -1,0 +1,16 @@
+Za inicijalizaciju lokalnog repozitorija:
+    git init
+    touch README.md
+
+Dodavanje datoteka na repozitorij
+    git add [imena datoteka]
+
+Commit datoteka
+    git commit -m "First commi"
+
+Dodavanje udaljenog repozitorija
+    git remote add origin_repository_URL
+
+Spremanje na udaljeni repozitorij
+    git branch -M main
+    git push -u main
