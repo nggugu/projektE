@@ -1,13 +1,16 @@
-# Zajednicki izvorni i objektni kodovi
+# Makefile for Project E, Lecture 2
+# Writen with help of Petar Susac and Luka Jengic
+
+# Common source and object codes
 SRC=$(wildcard ./src/*.c)
 OBJ=$(patsubst %.c,%.o,$(SRC))
 
-# Izvorni i objektni kodovi specificni za jedan program
+# Source and object codes specific to one program
 EXESRC=$(wildcard exesrc/*.c)
 EXEOBJ=$(patsubst %.c,%.o,$(EXESRC))
 EXE=$(patsubst exesrc/%.c,%.elf,$(EXESRC))
 
-# Postavke kompajlera
+# Compiler settings
 CC=gcc
 CFLAGS=-I inc/
 LDFLAGS=-lm
