@@ -8,7 +8,7 @@ OBJ=$(patsubst %.c,%.o,$(SRC))
 # Source and object codes specific to one program
 EXESRC=$(wildcard exesrc/*.c)
 EXEOBJ=$(patsubst %.c,%.o,$(EXESRC))
-EXE=$(patsubst exesrc/%.c,%.elf,$(EXESRC))
+EXE=$(patsubst exesrc/%.c,exe/%.elf,$(EXESRC))
 
 # Compiler settings
 CC=gcc
@@ -19,8 +19,8 @@ LDFLAGS=-lm
 
 all: $(EXE)
 
-%.elf: exesrc/%.o $(OBJ)
-	$(CC) $^ -o exe/$@ $(LDFLAGS)
+%.elf: $(EXEOBJ) $(OBJ)
+	$(CC) $(patsubst exe/%.elf,exesrc/%.o,$@) $(OBJ) -o $@ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
